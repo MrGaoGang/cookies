@@ -6,7 +6,7 @@ Cookie Manager for React Native
 <img src="https://img.shields.io/discord/764994995098615828?label=Discord&logo=Discord&style=for-the-badge"
             alt="chat on Discord"></a>
 
-This module was ported from [joeferraro/react-native-cookies-mrgao](https://github.com/joeferraro/react-native-cookies-mrgao). This would not exist without the work of the original author, [Joe Ferraro](https://github.com/joeferraro).
+This module was ported from [react-native-cookies/cookies](https://github.com/react-native-cookies/cookies).
 
 ## Important notices & Breaking Changes
 - **v6.0.0**: Package name updated to `@react-native-cookies-mrgao/cookies`.
