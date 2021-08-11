@@ -6,10 +6,10 @@ Cookie Manager for React Native
 <img src="https://img.shields.io/discord/764994995098615828?label=Discord&logo=Discord&style=for-the-badge"
             alt="chat on Discord"></a>
 
-This module was ported from [joeferraro/react-native-cookies](https://github.com/joeferraro/react-native-cookies). This would not exist without the work of the original author, [Joe Ferraro](https://github.com/joeferraro).
+This module was ported from [joeferraro/react-native-cookies-mrgao](https://github.com/joeferraro/react-native-cookies-mrgao). This would not exist without the work of the original author, [Joe Ferraro](https://github.com/joeferraro).
 
 ## Important notices & Breaking Changes
-- **v6.0.0**: Package name updated to `@react-native-cookies/cookies`.
+- **v6.0.0**: Package name updated to `@react-native-cookies-mrgao/cookies`.
 - **v5.0.0**: Peer Dependency of >= React Native 0.60.2
 - **v4.0.0**: Android SDK version bumpted to 21
 - **v3.0.0**: Remove React Native Core dependencies, CookieManager.set() support for Android
@@ -30,7 +30,7 @@ Currently lacking support for Windows, macOS, and web. Support for these platfor
 ## Installation
 
 ```
-yarn add @react-native-cookies/cookies
+yarn add @react-native-cookies-mrgao/cookies
 ```
 
 Then link the native iOS package
@@ -61,7 +61,7 @@ export interface Cookies {
 ```
 
 ```javascript
-import CookieManager from '@react-native-cookies/cookies';
+import CookieManager from '@react-native-cookies-mrgao/cookies';
 
 // set a cookie
 CookieManager.set('http://example.com', {
@@ -142,7 +142,7 @@ To use this _CookieManager_ with WebKit-Support we extended the interface with t
 ##### Usage
 
 ```javascript
-import CookieManager from '@react-native-cookies/cookies';
+import CookieManager from '@react-native-cookies-mrgao/cookies';
 
 const useWebKit = true;
 

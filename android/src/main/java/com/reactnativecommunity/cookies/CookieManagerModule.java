@@ -106,7 +106,6 @@ public class CookieManagerModule extends ReactContextBaseJavaModule {
     public void getFromResponse(String url, Promise promise) throws URISyntaxException, IOException {
         promise.resolve(url);
     }
-
     @ReactMethod
     public void getAll(Boolean useWebKit, Promise promise) {
         promise.reject(new Exception(GET_ALL_NOT_SUPPORTED));
@@ -160,16 +159,19 @@ public class CookieManagerModule extends ReactContextBaseJavaModule {
         try {
             CookieManager cookieManager = getCookieManager();
             if (USES_LEGACY_STORE) {
-                cookieManager.setCookie(url, cookieString);
+                String[] values = cookieString.split(";");
+                for (String value : values) {
+                    cookieManager.setCookie(url, value);
+                }
                 mCookieSyncManager.sync();
                 promise.resolve(true);
             } else {
-                cookieManager.setCookie(url, cookieString, new ValueCallback<Boolean>() {
-                    @Override
-                    public void onReceiveValue(Boolean value) {
-                        promise.resolve(value);
-                    }
-                });
+                String[] values = cookieString.split(";");
+                for (String value : values) {
+                    cookieManager.setCookie(url, value);
+                }
+                promise.resolve(true);
+
                 cookieManager.flush();
             }
         } catch (Exception e) {
@@ -179,7 +181,6 @@ public class CookieManagerModule extends ReactContextBaseJavaModule {
 
     private WritableMap createCookieList(String allCookies) throws Exception {
         WritableMap allCookiesMap = Arguments.createMap();
-
         if (!isEmpty(allCookies)) {
             String[] cookieHeaders = allCookies.split(";");
             for (String singleCookie : cookieHeaders) {
@@ -228,7 +229,6 @@ public class CookieManagerModule extends ReactContextBaseJavaModule {
             if (!topLevelDomain.contains(domain) && !topLevelDomain.equals(domain)) {
                 throw new Exception(String.format(INVALID_DOMAINS, topLevelDomain, domain));
             }
-
             cookieBuilder.setDomain(domain);
         } else {
             cookieBuilder.setDomain(topLevelDomain);
